@@ -1,38 +1,115 @@
-.App {
-  text-align: center;
+*{
+  background-color: #F2F4F8;
+  margin: 0px;
+  padding: 0px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+
+
+/*
+Starting custom code
+*/
+
+.container-text-nav{
+  height: 50px;
+  width: 100%;
+  text-align: left;
+  background-color: #fff;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.nav-title{
+  font-size: 24px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  background-color: #fff;
+  
 }
 
-.App-header {
-  background-color:#F2F4F8;
-  min-height: 100vh;
+.nav-var{
+  width: 100%;
+  height: 85px;
+  background-color: #fff;
+  color: #697077;
+  position: fixed;
   display: flex;
-  flex-direction: column;
   align-items: center;
+  
+}
+
+.nav-name{
+  font-size: 12px;
+  background-color: #fff;
+  
+  
+  color: #697077;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.img-nav-container{
+  height: 75px;
+  width: 75px;
+  background-color: #fff;
+  margin-left: 8%;
+}
+
+.img-nav-container img {
+  max-width: 100%; /* La imagen se ajustará automáticamente al ancho del contenedor */
+  height: auto;
+  background-color: #fff;
+}
+
+.main-image{
+  width: 50%;
+
+
+}
+
+.screen-view{
+  width: 100%;
+  display: flex;
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  height: 100vh;
 }
 
-.App-link {
-  color: #61dafb;
+
+.main-logo{
+  width: 400px;
+  height: 400px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.main-logo img{
+  max-width: 100%; /* La imagen se ajustará automáticamente al ancho del contenedor */
+  height: auto;
+}
+
+h1{
+  font-size: 45px;
+}
+
+.login-div{
+  width: 50%;
+}
+
+.content-div{
+  width: 500px;
+  text-align: left;
+}
+
+.name-login{
+  font-size: 24px;
+  font-weight: bolder;
+  
+}
+
+#email-input{
+  width: 50%;
+  padding: 10px;
+  border-bottom: 2px solid #ccc;
+  border-top: 0px;
+  border-right: 0px;
+  border-left: 0px;
+  font-size: 14px;
+  margin-top: 5%;
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
 }
