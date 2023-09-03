@@ -1,24 +1,33 @@
 import React, { useState, useEffect } from "react";
 import '../App.css';
-import Eye from '../assets/show-password-eye.png';
-import NotEye from '../assets/hide-password-eye.png';
-import logo2 from '../assets/logo.png';
 import NavigationVar from './NavigationVar';
 
 
-export default function Login() {
-    const [stateButtom,changeState] = useState(false);
-
-    const swapPassword = () => {
-        changeState(!stateButtom);
-    };
+export default function Register() {
     
+
+
 
     return (
         <div>
         <NavigationVar back="/"/>
+        <div className="container-h1">
+            <h1 className="header-register">Ingrese sus datos</h1>
+        </div>
         <div className='screen-view'>
-            <h1>Hola Mundo</h1>
+            <div className="container-form-register-select-account">
+                <form id="form-register-select-account">
+                    <label htmlFor='accountType' className="label-register">Tipo de cuenta</label>
+                    <select id="accountType">
+                        <option className="options-register" value="null">Seleccione el tipo de cuenta:  </option>
+                        <option className="options-register" value="Estudiante">Estudiante</option>
+                        <option className="options-register" value="Asociación">Asociación</option>
+                    </select>
+                </form>
+            </div>
+            
+            
+            
         
         </div>
         </div>

@@ -73,7 +73,7 @@ Login
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: 90vh;
 }
 
 
@@ -191,3 +191,92 @@ h1{
 .create-account{
   margin-top: 5%;
 }
+
+.vibrate {
+  font-size: 24px;
+  text-align: center;
+  transition: transform 0.1s ease-in-out;
+}
+
+.vibrating {
+  animation: vibrate 0.2s ease infinite;
+}
+
+@keyframes vibrate {
+  0% {
+      transform: translateX(-2px);
+  }
+  50% {
+      transform: translateX(2px);
+  }
+  100% {
+      transform: translateX(-2px);
+  }
+}
+
+.error-message {
+  color: red;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+
+/*-----------------------------------------------------------------*/
+
+.container-h1{
+  padding-top: 85px;
+}
+
+.header-register{
+  width: 100%;
+  text-align: left;
+  margin-left: 5%;
+  font-size: 35px;
+}
+
+.label-register{
+  display: block;
+  margin-bottom: 5%;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+
+#form-register-select-account{
+  width: 25%;
+  
+  
+}
+
+.container-form-register-select-account{
+  width: 80%;
+  display: flex;
+  justify-content: left;
+
+}
+
+#accountType{
+  width: 100%;
+  padding: 4.6%;
+  box-shadow: 1px 1px 6px 1px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  border:0px;
+  font-size: 16px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  
+}
+
+.options-register{
+  background-color: #555555;
+  font-size: 16px;
+  color: #fff;
+  padding: 2%;
+}
+
+.options-register::hover{
+  background-color: #f07e7e;
+  font-size: 18px;
+
+
+}
+
+
