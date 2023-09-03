@@ -37,7 +37,7 @@ const register = async(req, res) =>
         .input('inLicence', req.body.inLicence)
         .input('inPassword', req.body.inPassword)
         .input('inUserType', req.body.inUserType)
-        .input('inPhoneNumber', req.boby.inPhoneNumber)
+        .input('inPhone', req.boby.inPhone)
         .input('inCareer', req.boby.inCareer)
         .input('inID', req.boby.inID)
         .output('outResultCode', 0)
