@@ -18,7 +18,8 @@ app.use(express.json());
 Call functions
 */
 app.post('/login', controller.login)
-app.post('/register', controller.register)
+app.post('/registerStudent', controller.registerStudent)
+app.post('/registerAsociation', controller.registerAsociation)
 app.use('/',router)
 /*
 Shut up server
