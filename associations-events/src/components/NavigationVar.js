@@ -2,7 +2,7 @@ import React from "react";
 import '../App.css';
 import logo from '../assets/logo.png';
 
-export default function NavigationVar() {
+export default function NavigationVar(params) {
 
     return(
         <div className = 'nav-var'>

@@ -10,6 +10,10 @@
 Starting custom code
 */
 
+/*
+Login
+*/
+
 .container-text-nav{
   height: 50px;
   width: 100%;
@@ -59,13 +63,13 @@ Starting custom code
 
 .main-image{
   width: 50%;
-
-
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .screen-view{
   width: 100%;
-  display: flex;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -74,8 +78,11 @@ Starting custom code
 
 
 .main-logo{
-  width: 400px;
-  height: 400px;
+  width: 65%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
 }
 
 .main-logo img{
@@ -85,20 +92,26 @@ Starting custom code
 
 h1{
   font-size: 45px;
+  color: #21272A;
 }
 
 .login-div{
   width: 50%;
+  margin-top: 4%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .content-div{
-  width: 500px;
+  width: 70%;
   text-align: left;
 }
 
 .name-login{
   font-size: 24px;
   font-weight: bolder;
+  color: #21272A;
   
 }
 
@@ -110,6 +123,71 @@ h1{
   border-right: 0px;
   border-left: 0px;
   font-size: 14px;
+  margin-top: 10%;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;}
+
+#password-input{
+  width: 50%;
+  padding: 10px;
+  border-bottom: 2px solid #ccc;
+  border-top: 0px;
+  border-right: 0px;
+  border-left: 0px;
+  font-size: 14px;
   margin-top: 5%;
-  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;}
+
+.button-container{
+  width: 25px;
+  height: 25px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5%;
+  margin-left: 5%;
+}
+
+.button-container button {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  cursor: pointer;
+  border: 0;
+}
+
+.button-container button img{
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+}
+
+#login-button{
+  margin-top: 5%;
+  display: block;
+  padding: 3%;
+  width: 35%;
+  border: 0;
+  background-color: #0F62FE;
+  cursor: pointer;
+  color: #fff;
+  font-size: 16px;
+  font-weight: bolder;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  box-shadow: 2px 2px 5px 2px rgba(0, 0, 0, 0.5);
+  transition: 300ms;
+}
+
+#login-button:hover{
+  background-color: #0042bd;
+  transition: 300ms;
+}
+
+.create-account{
+  margin-top: 5%;
 }
