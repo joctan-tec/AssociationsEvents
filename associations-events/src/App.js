@@ -1,23 +1,22 @@
-import NavigationVar from './components/NavigationVar';
+
 import './App.css';
-import logo2 from './assets/logo.png';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Login from './components/Login';
+import Register from './components/Register';
 
 
 function App() {
   return (
     <div className="App">
-      <NavigationVar/>
-      <div className='screen-view'>
-        <Login/>
-        <div className='main-image'>
-          <div className='main-logo'>
-            <img src={logo2} alt="Logo"/>
-          </div>
-        </div>
-      </div>
+
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Login/>} />
+          <Route path="/register" element={<Register/>} />
+
+        </Routes>
       
-        
+      </BrowserRouter>
   
     </div>
   );
