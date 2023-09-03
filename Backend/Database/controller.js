@@ -1,14 +1,12 @@
 const conn = require('../Database/connection')
 /*
-Function to call SP FilterByAmount
-*//*
+Calling SP Login
+*/
 const login = async(req, res) => {
     const pool = await conn.getConnection();
     const result = await pool.request()
         .input('inUser', req.body.inUser)
         .input('inPassword', req.body.inPassword)
-        .input('inPostUser', req.body.inPostUser)
-        .input('inPostIp', req.body.inPostIp)
         .output('outLoginSuccess', 0)             
         .output('outResultCode', 0)
         .execute('LoginDB');
@@ -23,7 +21,14 @@ const login = async(req, res) => {
                 message: "Usuario o contraseña incorrectos"
             })
         }
-};*/
+    };
 
-//exports.login = login;
+/*
+Calling SP SignUp
+*/
+const register = async(req, res) => {
+    const pool = await conn.getConnection();
+    const 
+    };
+exports.login = login;
 
