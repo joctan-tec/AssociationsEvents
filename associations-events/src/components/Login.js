@@ -15,6 +15,10 @@ export default function Login() {
         changeState(!stateButtom);
     };
 
+    
+    //This code's restart the stack or history when the users returns to login
+
+
     const [validated, setValidated] = useState(false);
     
 
@@ -74,9 +78,9 @@ export default function Login() {
                     <h1>Gestión de Eventos Estudiantiles</h1>
                     <p className="name-login">Instituto Tecnológico de Costa Rica</p>
                     <form className="login-form" onSubmit={handleAccess}>
-                        <input type="text" id="email-input" placeholder="Correo" name="email" required />
+                        <input type="text" id="email-input" className="data-inputs" placeholder="Correo" name="email" required />
                         <div id="emailError" name="password" className="error-message"></div>
-                        <input type={stateButtom ? "text" : "password"} id="password-input" placeholder="Contraseña" required/>
+                        <input type={stateButtom ? "text" : "password"} className="data-inputs" id="password-input" placeholder="Contraseña" required/>
                         <div className="button-container">
                             <button id="eye-button" type="button" onClick={swapPassword}>
                                 <img src={stateButtom ? NotEye: Eye} id="eye-image" alt="Set password visible or not" />
@@ -85,8 +89,8 @@ export default function Login() {
                         <div id="passwordError" className="error-message"></div>
                         <button id="login-button" type="submit">Iniciar Sesión ➔</button>
                     </form>
-                    <p className="create-account">¿No tenés una cuenta? 
-                    <Link to="/register">Registrate aquí</Link></p>
+                    <p className="create-account">¿No tenés una cuenta?  
+                    <Link to="/register"> Registrate aquí</Link></p>
                     
                     
                 </div>

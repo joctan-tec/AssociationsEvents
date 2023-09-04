@@ -1,5 +1,5 @@
 *{
-  background-color: #F2F4F8;
+  background-color: #e9eef7;
   margin: 0px;
   padding: 0px;
 }
@@ -97,7 +97,7 @@ h1{
 
 .login-div{
   width: 50%;
-  margin-top: 4%;
+  margin-top: 9%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -115,7 +115,7 @@ h1{
   
 }
 
-#email-input{
+.data-inputs{
   width: 50%;
   padding: 10px;
   border-bottom: 2px solid #ccc;
@@ -126,20 +126,10 @@ h1{
   margin-top: 10%;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;}
+    sans-serif;
+  }
 
-#password-input{
-  width: 50%;
-  padding: 10px;
-  border-bottom: 2px solid #ccc;
-  border-top: 0px;
-  border-right: 0px;
-  border-left: 0px;
-  font-size: 14px;
-  margin-top: 5%;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;}
+
 
 .button-container{
   width: 25px;
@@ -223,6 +213,26 @@ h1{
 
 /*-----------------------------------------------------------------*/
 
+.screen-view-register{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  
+  height: 90vh;
+  margin-bottom: 5%;
+}
+
+.register-container{
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  
+  margin-top: 3%;
+  
+  
+  
+}
+
 .container-h1{
   padding-top: 85px;
 }
@@ -232,17 +242,19 @@ h1{
   text-align: left;
   margin-left: 5%;
   font-size: 35px;
+  
 }
 
 .label-register{
   display: block;
-  margin-bottom: 5%;
+  margin-bottom: 2%;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  
 }
 
 
 #form-register-select-account{
-  width: 25%;
+  width: 50%;
   
   
 }
@@ -251,12 +263,13 @@ h1{
   width: 80%;
   display: flex;
   justify-content: left;
+  margin-bottom: 2%;
 
 }
 
 #accountType{
   width: 100%;
-  padding: 4.6%;
+  padding: 4%;
   box-shadow: 1px 1px 6px 1px rgba(0, 0, 0, 0.25);
   border-radius: 10px;
   border:0px;
@@ -264,6 +277,19 @@ h1{
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   
 }
+
+#career{
+  width: 100%;
+  padding: 4%;
+  box-shadow: 1px 1px 6px 1px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  border:0px;
+  font-size: 16px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  
+}
+
+
 
 .options-register{
   background-color: #555555;
@@ -279,4 +305,61 @@ h1{
 
 }
 
+.data-inputs-register{
+  width: 80%;
+  padding: 10px;
+  border-bottom: 2px solid #ccc;
+  border-top: 0px;
+  border-right: 0px;
+  border-left: 0px;
+  font-size: 14px;
+  
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+}
+
+
+.container-data-register{
+  display: flex;
+  width: 80%;
+  flex-wrap: wrap;
+  
+}
+
+.inputs-container{
+  width: 50%;
+  margin-top: 4%;
+
+
+}
+
+
+#register-students-form{
+  width: 100%;
+}
+
+#register-button{
+  margin-top: 5%;
+  display: block;
+  padding: 2%;
+  width: 35%;
+  border: 0;
+  background-color: #0F62FE;
+  cursor: pointer;
+  color: #fff;
+  font-size: 16px;
+  font-weight: bolder;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  box-shadow: 2px 2px 5px 2px rgba(0, 0, 0, 0.5);
+  transition: 300ms;
+  margin-bottom: 5%;
+}
+
+#register-button:hover{
+  background-color: #0042bd;
+  transition: 300ms;
+}
 
