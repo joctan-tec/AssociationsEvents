@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import '../App.css';
 import NavigationVar from './NavigationVar.js';
 import Calendar from "./Calendar"
+import EventsPerDate from "./ViewEventsPerDate"
 export default function ViewEventsStudent() {
 
 
@@ -20,7 +21,7 @@ export default function ViewEventsStudent() {
                     </div>
 
                     <div className="square-events">
-                    <Calendar />
+                    <EventsPerDate />
                     </div>
 
                    

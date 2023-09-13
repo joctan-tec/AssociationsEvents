@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import '../App.css';
 import NavigationVar from './NavigationVar';
 import RegisterUserStudent from './RegisterUserStudent';
-import Alert from 'react-bootstrap/Alert';
+
 import RegisterAssociation from "./RegisterAssociation";
 
 
