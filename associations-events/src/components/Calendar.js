@@ -2,6 +2,8 @@ import React, { useState, useEffect, useRef } from "react";
 import '../App.css';
 import backArrow from '../assets/back-arrow.png';
 import nextArrow from '../assets/next-arrow.png';
+import { createRoot } from 'react-dom';
+
 
 
 function esBisiesto(año) {
@@ -12,13 +14,26 @@ function esBisiesto(año) {
     }
 };
 
+//function selectDay(num) {
+ //   console.log(num)
+//};
+
+
 export default function Calendar() {
+
     const containerRef = useRef(null);
-    const [currentDate,onChange] = useState(new Date("2023-09-23"));
+    var date = new Date()
+    const [currentDate,onChange] = useState(date);
     const rows = 6;
     const columns = 7;
-    const year = currentDate.getFullYear();
+    var selectedDay = currentDate.getDay();
+    var year = currentDate.getFullYear();
 
+    const selectDay = (num) => {
+        console.log(num);
+        selectedDay = num
+        
+    }
     const months = {
         0: ["Enero", 31, 11, 1],
         1: ["Febrero", esBisiesto(year) ? 29 : 28, 0, 2],
@@ -33,46 +48,87 @@ export default function Calendar() {
         10: ["Noviembre", 30, 9, 11],
         11: ["Diciembre", 31, 10, 0]
     };
-    const primerDiaDeLaSemana = new Date(year,currentDate.getMonth(), 0).getDay();
-    console.log("first",primerDiaDeLaSemana);
-    const daysOfweek = ["Lun","Mar","Mié","Jue","Vie","Sáb","Dom"]
+
+    const nextMonth = () => {
+        let currentMonth = currentDate.getMonth();
+        if (currentMonth == 11) {
+            currentMonth = 0
+            year += 1
+        }else{
+            currentMonth += 1 
+        }
+        
+ 
+  
+        onChange(new Date(year,currentMonth));
+    }
+
+    const previousMonth = () => {
+        let currentMonth = currentDate.getMonth();
+        if (currentMonth == 0) {
+            currentMonth = 11
+            year -= 1
+        }else{
+            currentMonth -= 1
+        }
+
+        onChange(new Date(year,currentMonth));
+    }
     
+    
+    const daysOfweek = ["Lun","Mar","Mié","Jue","Vie","Sáb","Dom"]
 
     useEffect(() => {
-        // Crear el HTML dinámico
-        let dynamicHTML = '';
+        // Crear el HTML dinámico usando JSX
+
+        const primerDiaDeLaSemana = new Date(year,currentDate.getMonth(), 0).getDay();
+        const daysHTML = [];
         let isDone = false;
         let count = 1;
         let limit = months[currentDate.getMonth()][1];
+        let keyCount = 0;
         for (let i = 0; i < rows; i++) {
-            dynamicHTML += '<div class="days-line">';
-            for (let j = 0; j < columns; j++) {
-                if (count <= limit) {
-                    if (primerDiaDeLaSemana === j || isDone) {
-                        dynamicHTML += '<div class="days-number"> <span>' + count + '</span></div>';
-                        count += 1;
-                        isDone = true;
-                    }else{
-                        dynamicHTML += '<div class="days-number"><span></span></div>';
-                    }
-                }else{
-                    dynamicHTML += '<div class="days-number"><span></span></div>';
-                }
-                
+          const row = [];
+          for (let j = 0; j < columns; j++) {
+            const currentCount = count; // Captura el valor actual de count
+            if (count <= limit) {
+              if (primerDiaDeLaSemana === j || isDone) {
+                row.push(
+                  <div className="days-number" key={keyCount}>
+                    <button
+                      type="button"
+                      onClick={() => selectDay(currentCount)}
+                      className="day-button"
+                    >
+                      {count}
+                    </button>
+                  </div>
+                );
+                count += 1;
+                isDone = true;
+              } else {
+                row.push(
+                  <div className="days-number" key={keyCount}>
+                    <span></span>
+                  </div>
+                );
+              }
+            } else {
+              row.push(
+                <div className="days-number" key={keyCount}>
+                  <span></span>
+                </div>
+              );
             }
-            dynamicHTML += '</div>';
+            keyCount += 1;
+          }
+          
+          daysHTML.push(<div className="days-line" key={i}>{row}</div>);
         }
-        
-        // Insertar el HTML en el contenedor usando la propiedad innerHTML
-        if (containerRef.current) {
-            containerRef.current.innerHTML = dynamicHTML;
-            dynamicHTML = '';
-        }
-    }, []);
-    
-    
-    
-    
+        const root = createRoot(containerRef.current);
+        // Renderizar el JSX dentro del contenedor utilizando ReactDOM.createRoot
+        root.render(<>{daysHTML}</>);
+      }, [currentDate]);
     
     
 
@@ -82,14 +138,14 @@ export default function Calendar() {
                 <h2 id="month-year">{months[currentDate.getMonth()][0] + " " + year}</h2>
                 <div className="buttons-header-calendar">
                     <div className="arrows-container-calendar">
-                        <div id="back-arrow">
+                        <div id="back-arrow" onClick={previousMonth}>
                             <img src={backArrow}/>
                         </div>
                     </div>
 
                     <div className="arrows-container-calendar">
-                        <div id="next-arrow">
-                            <img src={nextArrow}/>
+                        <div id="next-arrow" onClick={nextMonth}>
+                            <img src={nextArrow} />
                         </div>
                     </div>
                 </div>
