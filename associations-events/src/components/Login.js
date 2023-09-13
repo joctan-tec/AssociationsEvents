@@ -51,7 +51,7 @@ export default function Login() {
         .then((data) => {
             console.log(data.access)
             if(data.access == 'Login Exitoso'){
-                navigate('/register');
+                navigate('/home');
             }else{
                 
             }
