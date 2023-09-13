@@ -4,7 +4,7 @@ import on from '../assets/switch_on.png';
 import off from '../assets/switch_off.png';
 
 
-export default function Event() {
+export default function Event(props) {
     const [stateButtom,changeState] = useState(false);
 
     const swapSwitch = () => {
@@ -22,10 +22,10 @@ export default function Event() {
                 <div className="one-event">
                 </div>
             </div>
-            <h3 id="event-name">Evento name</h3>
+            <h3 id="event-name">{props.name}</h3>
             <div className="individual">
                <div className="header-calendar">
-                    <h4 id="name">Hora: /*aqui*/</h4>
+                    <h4 id="name">Hora: {props.hour}</h4>
                     <div className="container-buttom">
                     <div className="switch-container-calendar">
                         <div id="switch-buttom">
@@ -38,7 +38,7 @@ export default function Event() {
     
                 </div>
                 <div className="header-calendar">
-                    <h4 id="name">Ubicación: /*aqui*/</h4>
+                    <h4 id="name">Ubicación:{props.location}</h4>
                     <div className="container-buttom">
                     <div className="switch-container-calendar">
                         <div id="switch-buttom">

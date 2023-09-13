@@ -15,7 +15,11 @@ export default function EventPerDate() {
             </div>
             <div className="line-event"></div>
             <div className="event-list">
-            <Event />
+                <Event
+                    name="Evento1"
+                    hour="16:29"
+                    location="Cartago"
+                />
                 </div>
         </div>
     
