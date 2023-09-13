@@ -14,8 +14,8 @@ function esBisiesto(año) {
 
 export default function Calendar() {
     const containerRef = useRef(null);
-    const [currentDate,onChange] = useState(new Date());
-    const rows = 5;
+    const [currentDate,onChange] = useState(new Date("2023-09-23"));
+    const rows = 6;
     const columns = 7;
     const year = currentDate.getFullYear();
 
