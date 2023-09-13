@@ -19,19 +19,24 @@ function esBisiesto(año) {
 //};
 
 
-export default function Calendar() {
+export default function Calendar(props) {
 
     const containerRef = useRef(null);
     var date = new Date()
     const [currentDate,onChange] = useState(date);
     const rows = 6;
     const columns = 7;
-    var selectedDay = currentDate.getDay();
+    var selectedDay = currentDate.getDate();
     var year = currentDate.getFullYear();
+    
 
     const selectDay = (num) => {
         console.log(num);
-        selectedDay = num
+        selectedDay = num;
+
+        if (props.onDateChange) {
+          props.onDateChange([selectedDay,currentDate.getMonth()+1,year]); // Llama a la función de controlador proporcionada en las props
+        }
         
     }
     const months = {
@@ -128,7 +133,9 @@ export default function Calendar() {
         const root = createRoot(containerRef.current);
         // Renderizar el JSX dentro del contenedor utilizando ReactDOM.createRoot
         root.render(<>{daysHTML}</>);
-      }, [currentDate]);
+
+        
+      }, [currentDate, selectedDay]);
     
     
 

@@ -4,6 +4,14 @@ import NavigationVar from './NavigationVar.js';
 import Calendar from "./Calendar"
 export default function ViewEventsStudent() {
 
+    const today = new Date();
+    const [selectedDate, setSelectedDate] = useState([today.getDate(),today.getMonth()+1,today.getFullYear()]);
+  // Esta función se usará como controlador para recibir el cambio de fecha desde el componente Calendar
+    const handleDateChange = (date) => {
+        setSelectedDate(date);
+    };
+
+    
 
     return (
         <div>
@@ -16,13 +24,14 @@ export default function ViewEventsStudent() {
                     
 
                     <div className="square-events">
-                    <Calendar />
+                    <Calendar onDateChange={handleDateChange}/>
                     </div>
 
                     <div className="square-events">
                     <Calendar />
                     </div>
 
+                    
                    
                     
                 </div>
