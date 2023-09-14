@@ -102,12 +102,12 @@ export default function RegisterAssociation() {
                         <label htmlFor="repeat-password" className="label-register">Confirmar contraseña</label>
                         <input id="repeat-password" name="repeat-password" type="password" required placeholder="Confirmar su contraseña" className="data-inputs-register"></input>
                     </div>
+                    <button type="submit"id="register-button">Registrarse ➔</button>
 
                     
                 </div>
-                <div>
-                    <button type="submit"id="register-button">Registrarse ➔</button>
-                </div>
+                
+                
                 
 
             </form>

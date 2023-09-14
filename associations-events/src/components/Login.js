@@ -8,7 +8,7 @@ import { Link, useNavigate } from "react-router-dom";
 
 
 
-export default function Login() {
+export default function Login(props) {
     const [stateButtom,changeState] = useState(false);
     const navigate = useNavigate();
     const swapPassword = () => {
@@ -51,6 +51,9 @@ export default function Login() {
         .then((data) => {
             console.log(data.access)
             if(data.access == 'Login Exitoso'){
+                if (props.onDateChange) {
+                    props.onLogged("Miguel"); // Llama a la función de controlador proporcionada en las props
+                  }
                 navigate('/home');
             }else{
                 
@@ -65,7 +68,7 @@ export default function Login() {
         }
     }
 
-    
+    document.title = "Inicio de sesión"
     
 
     return (
@@ -101,6 +104,8 @@ export default function Login() {
             </div>
             </div>
       </div>
+      <p className="create-account">¿No tenés una cuenta?  
+                    <Link to="/asocia"> Registrate aquí</Link></p>
       </div>
         
     )
