@@ -5,6 +5,7 @@ Calling SP Login
 const login = async(req, res) => 
 {
     const patron = /^[a-zA-Z0-9._%+-]+@estudiantec\.cr$/;
+    const account = {}
 
     const pool = await conn.getConnection();
     var result = await pool.request()
@@ -19,7 +20,7 @@ const login = async(req, res) =>
             .output('outLoginSuccess', 0)             
             .output('outResultCode', 0)
             .execute('LoginDB')
-            console.log('Estudiante')
+            account.accountType = "Student"
         }else{
             result = await pool.request()
             .input('inName', req.body.inName)
@@ -27,15 +28,12 @@ const login = async(req, res) =>
             .output('outLoginSuccess', 0)             
             .output('outResultCode', 0)
             .execute('LoginDBAso');
-            console.log('Asocia')
+            account.accountType = "Association"
         }
-        console.log(result.output.outLoginSuccess)
-        console.log(result.output.outResultCode)
-        if (result.output.outResultCode == 0 && result.output.outLoginSuccess == 0){
-            res.json({
-                access: "Login Exitoso",
-                message: "Inicio de sesión exitoso"
-            })
+    if (result.output.outResultCode == 0 && result.output.outLoginSuccess == 0) {
+        account.access = "Login Exitoso"
+        account.message = "Inicio de sesión exitoso"
+            res.json(account)
         } else {
             res.json({
                 access: "Login Fallido",
