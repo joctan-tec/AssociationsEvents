@@ -119,9 +119,8 @@ const showEventsbyDate = async(req, res) =>
     const pool = await conn.getConnection();
     const result = await pool.request()
         .input('inDate', req.body.inDate)
-        .input('inId', req.body.inId)
         .output('outResultCode', 0)
-        .execute('ShowEventsUsers');
+        .execute('ShowEvents');
         res.json(result.recordset)
 };
 /* 
@@ -157,7 +156,7 @@ const ShowPropusalPerAssociation = async(req, res) =>
     const result = await pool.request()
         .input('inName', req.body.inName)
         .output('outResultCode', 0)
-        .execute('ShowPropusals');
+        .execute('ShowProposals');
         res.json(result.recordset)
 };
 
