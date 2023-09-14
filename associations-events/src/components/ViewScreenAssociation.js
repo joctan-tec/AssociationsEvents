@@ -12,16 +12,14 @@ export default function ViewScreenAssociation(props) {
         <div>
             <NavigationVar back="/"/>
             <div className="container-all">
-                <h1 className="events-header">
-                    {props.name}
-                </h1>
+                
 
                 <h2 className="events-header">
                     Propuestas
                 </h2>
 
                 <div className="square-proposals">
-                    <Proposals />
+                    <Proposals name = {props.name}/>
                 </div>
             </div>
         </div>

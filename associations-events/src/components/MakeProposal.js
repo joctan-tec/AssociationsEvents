@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 
 
 
-export default function MakeProposal() {
+export default function MakeProposal(props) {
     const navigate = useNavigate();
     document.title = "Inicio"
     const [validated, setValidated] = useState(false);
@@ -52,47 +52,44 @@ export default function MakeProposal() {
 
 
     const register = (event) => {
-        const password = document.getElementById("request-password").value;
-        const password2 = document.getElementById("repeat-password").value;
+
         const career = document.getElementById('career').value;
-
-        if (password != password2) {
-            alert("Las contraseñas no coinciden");
-        } else {
-            if (career === 'null') {
-                alert("Debe escoger una carrera");
-            } else {
-                //Required data
-                const name = document.getElementById('request-name').value;
-
-                const miForm = event.currentTarget;
-                event.preventDefault();
+        const topic = document.getElementById('request-topic').value;
+        const target = document.getElementById('request-target').value;
+        const ideas = document.getElementById('request-idea').value;
+        const id = props.id + "";
+        const miForm = event.currentTarget;
+        event.preventDefault();
 
                 if(miForm.checkValidity()=== false){
                     event.stopPropagation();
                     setValidated(true);
-                }else{
+                }
                 
                 
                 
 
 
-                fetch('http://localhost:8080/registerAsociation', {
+                fetch('http://localhost:8080/InsertPropusals', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
                     },
                     body: JSON.stringify({
-                        "inName": name,
-                        "inPassword": password,         
-                        "inCareer": career,
+                        'inAssociation': career,
+                        'inThematic': topic,
+                        'inId':id,
+                        'inObjetives': target,
+                        'inActivityIdeas':ideas,
+                        'inCategory': 'Music'
                         
                     }),
                 }).then((res)=> res.json())
                 .then((data) => {
                     console.log(data.access)
                     if(data.access == 'Registro exitoso'){
-                        navigate('/');
+                        alert('Se envió correctamente')
+                    
                     }else{
                         alert(data.message)
                     }
@@ -104,13 +101,12 @@ export default function MakeProposal() {
                     console.log('Error al obtener datos desde el backend:', error);
                 })
                 }
-                    }
-                }
+                    
+                
 
 
-        
-    }
-
+             
+    
     
 
     
@@ -131,8 +127,8 @@ export default function MakeProposal() {
                             <label htmlFor='career' className="label-register">Asociación</label>
                             <select name="career" id="career">
                             <option className="options-register" value="null" >Seleccione la asociación:</option>
-                            <option className="options-register" value="Computación" >Computación</option>
-                            <option className="options-register" value="Administración de Empresas" >Administración de Empresas</option>
+                            <option className="options-register" value="ASODEC" >ASODEC</option>
+                            <option className="options-register" value="ASOAE" >ASOAE</option>
                             </select>
                         
                     </div>
@@ -213,5 +209,4 @@ export default function MakeProposal() {
         
         
         
-    )
-}
+    )}

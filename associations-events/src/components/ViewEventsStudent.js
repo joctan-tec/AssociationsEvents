@@ -1,21 +1,27 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import '../App.css';
 import NavigationVar from './NavigationVar.js';
 
 import Calendar from "./Calendar"
-import EventsPerDate from "./ViewEventsPerDate"
+import EventPerDate from "./ViewEventsPerDate"
 import RemindersList from "./RemindersList";
 import MakeProposal from "./MakeProposal";
 
-export default function ViewEventsStudent() {
+export default function ViewEventsStudent(props) {
 
     const today = new Date();
+
+    const [arrayEvents, setArrayEvents] = useState([]);
+
+    const user = parseInt(props.name);
     const [selectedDate, setSelectedDate] = useState([today.getDate(),today.getMonth()+1,today.getFullYear()]);
   // Esta función se usará como controlador para recibir el cambio de fecha desde el componente Calendar
     const handleDateChange = (date) => {
         setSelectedDate(date);
     };
 
+
+       
     
 
     return (
@@ -34,7 +40,7 @@ export default function ViewEventsStudent() {
 
 
                     <div className="square-events">
-                    <EventsPerDate />
+                    <EventPerDate date = {selectedDate}/>
                     </div>
 
                 </div>
@@ -42,7 +48,7 @@ export default function ViewEventsStudent() {
                 <h1 className="events-header">Recordatorios</h1>
                 
                 <div className="square-reminders">
-                    <RemindersList/>
+                    <RemindersList id = {user}/>
                 </div>
 
 
@@ -50,7 +56,7 @@ export default function ViewEventsStudent() {
                 
                 <div className="square-proposals">
                     <div className="reminders-container">
-                        <MakeProposal/>
+                        <MakeProposal id = {user}/>
                     </div>
                     
                 </div>

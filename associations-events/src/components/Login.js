@@ -50,13 +50,23 @@ export default function Login(props) {
         }).then((res)=> res.json())
         .then((data) => {
             console.log(data.access)
+            
             if(data.access == 'Login Exitoso'){
-                if (props.onDateChange) {
-                    props.onLogged("Miguel"); // Llama a la función de controlador proporcionada en las props
-                  }
-                navigate('/home');
-            }else{
+                if (data.accountType === 'Student' ) {
+                    if (props.onLogged) {
+                        props.onLogged(data.id); // Llama a la función de controlador proporcionada en las props
+                      }
+                    navigate('/home');
+                } else {
+                    if (props.onLogged) {
+                        props.onLogged(data.name); // Llama a la función de controlador proporcionada en las props
+                      }
+                    navigate('/homeAso');
+                }
                 
+                
+            }else{
+                alert("Contraseña o usuario inválidos")
             }
             
         })
@@ -104,8 +114,7 @@ export default function Login(props) {
             </div>
             </div>
       </div>
-      <p className="create-account">¿No tenés una cuenta?  
-                    <Link to="/asocia"> Registrate aquí</Link></p>
+      
       </div>
         
     )

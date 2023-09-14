@@ -21,8 +21,8 @@ function App() {
         <Routes>
           <Route path="/" element={<Login onLogged={handleLogin}/>} />
           <Route path="/register" element={<Register/>} />
-          <Route path="/home" element={<ViewEventsStudent/>} />
-          <Route path="/asocia" element={<ViewScreenAssociation name = {userLogged}/>} />
+          <Route path="/home" element={<ViewEventsStudent name = {userLogged}/>} />
+          <Route path="/homeAso" element={<ViewScreenAssociation name = {userLogged}/>} />
         
         </Routes>
       
