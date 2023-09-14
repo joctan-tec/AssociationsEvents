@@ -5,21 +5,25 @@ Calling SP Login
 const login = async(req, res) => 
 {
     const patron = /^[a-zA-Z0-9._%+-]+@estudiantec\.cr$/;
+    const account = {}
 
     const pool = await conn.getConnection();
     var result = await pool.request()
         .input('inName', req.body.inName)
         .input('inPassword', req.body.inPassword)
+        .output('outCedula')
         .output('outLoginSuccess', 0)             
         .output('outResultCode', 0)
         if(patron.test(req.body.inName)){
             result = await pool.request()
             .input('inName', req.body.inName)
             .input('inPassword', req.body.inPassword)
+            .output('outCedula')
             .output('outLoginSuccess', 0)             
             .output('outResultCode', 0)
             .execute('LoginDB')
-            console.log('Estudiante')
+            account.accountType = "Student"
+            account.id = result.output.outCedula
         }else{
             result = await pool.request()
             .input('inName', req.body.inName)
@@ -27,15 +31,13 @@ const login = async(req, res) =>
             .output('outLoginSuccess', 0)             
             .output('outResultCode', 0)
             .execute('LoginDBAso');
-            console.log('Asocia')
+            account.accountType = "Association"
+            account.name = req.body.inName
         }
-        console.log(result.output.outLoginSuccess)
-        console.log(result.output.outResultCode)
-        if (result.output.outResultCode == 0 && result.output.outLoginSuccess == 0){
-            res.json({
-                access: "Login Exitoso",
-                message: "Inicio de sesión exitoso"
-            })
+    if (result.output.outResultCode == 0 && result.output.outLoginSuccess == 0) {
+        account.access = "Login Exitoso"
+        account.message = "Inicio de sesión exitoso"
+            res.json(account)
         } else {
             res.json({
                 access: "Login Fallido",
@@ -109,7 +111,79 @@ const registerAsociation = async(req, res) =>
     }
 };
 
+/*
+Calling SP EventsbyDate
+*/
+const showEventsbyDate = async(req, res) => 
+{
+    const pool = await conn.getConnection();
+    const result = await pool.request()
+        .input('inDate', req.body.inDate)
+        .input('inId', req.body.inId)
+        .output('outResultCode', 0)
+        .execute('ShowEventsUsers');
+        res.json(result.recordset)
+};
+/* 
+Calling SP Reminders
+*/
+const showReminders = async(req, res) => 
+{
+    const pool = await conn.getConnection();
+    const result = await pool.request()
+        .input('inId', req.body.inId)
+        .output('outResultCode', 0)
+        .execute('ShowReminders');
+        res.json(result.recordset)
+};
+/* 
+Calling SP ShowEventsPerAsociation
+*/
+const ShowEventsPerAsociation = async(req, res) => 
+{
+    const pool = await conn.getConnection();
+    const result = await pool.request()
+        .input('inName', req.body.inName)
+        .output('outResultCode', 0)
+        .execute('ShowEventsAssociation');
+        res.json(result.recordset)
+};
+/* 
+Calling SP ShowPropusalPerAsociation
+*/
+const ShowPropusalPerAssociation = async(req, res) => 
+{
+    const pool = await conn.getConnection();
+    const result = await pool.request()
+        .input('inName', req.body.inName)
+        .output('outResultCode', 0)
+        .execute('ShowPropusals');
+        res.json(result.recordset)
+};
+
+/* 
+Calling SP ShowEventsPerAsociation
+*/
+const InsertPropusal = async(req, res) => 
+{
+    const pool = await conn.getConnection();
+    const result = await pool.request()
+        .input('inAssociation', req.body.inAssociation)
+        .input('inThematic', req.body.inThematic)
+        .input('inId', req.body.inId)
+        .input('inObjetives', req.body.inObjetives)
+        .input('inActivityIdeas', req.body.inActivityIdeas)
+        .input('inCategory', req.body.inCategory)
+        .output('outResultCode', 0)
+        .execute('InserPropusalEvent');
+        res.json(result.recordset)
+};
+
 exports.login = login;
 exports.registerStudent = registerStudent;
 exports.registerAsociation = registerAsociation;
-
+exports.showEventsbyDate = showEventsbyDate;
+exports.showReminders = showReminders;
+exports.ShowEventsPerAsociation = ShowEventsPerAsociation;
+exports.ShowPropusalPerAssociation = ShowPropusalPerAssociation;
+exports.InsertPropusal = InsertPropusal;
