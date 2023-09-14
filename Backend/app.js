@@ -20,6 +20,12 @@ Call functions
 app.post('/login', controller.login)
 app.post('/registerStudent', controller.registerStudent)
 app.post('/registerAsociation', controller.registerAsociation)
+app.post('/showEventsbyDate', controller.showEventsbyDate)
+app.post('/showReminders', controller.showReminders)
+app.post('/ShowEventsPerAsociation', controller.ShowEventsPerAsociation)
+app.post('/ShowPropusalPerAsociation', controller.ShowPropusalPerAssociation)
+app.post('/InsertPropusal', controller.InsertPropusal)
+
 app.use('/',router)
 /*
 Shut up server
