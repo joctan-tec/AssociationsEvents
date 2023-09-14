@@ -65,7 +65,7 @@ export default function Login() {
         }
     }
 
-    
+    document.title = "Inicio de sesión"
     
 
     return (

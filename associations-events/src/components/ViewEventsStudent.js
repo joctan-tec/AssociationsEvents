@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import '../App.css';
 import NavigationVar from './NavigationVar.js';
-import Calendar from "./Calendar"
+import Calendar from "./Calendar";
+import RemindersList from "./RemindersList";
+import MakeProposal from "./MakeProposal";
 export default function ViewEventsStudent() {
 
     const today = new Date();
@@ -27,15 +29,22 @@ export default function ViewEventsStudent() {
                     <Calendar onDateChange={handleDateChange}/>
                     </div>
 
-                    <div className="square-events">
-                    <Calendar />
-                    </div>
+                </div>
+            
+                <h1 className="events-header">Recordatorios</h1>
+                
+                <div className="square-reminders">
+                    <RemindersList/>
+                </div>
 
-                    
-                   
+                <h1 className="events-header">Enviar propuesta de Evento</h1>
+                
+                <div className="square-proposals">
+                    <div className="reminders-container">
+                        <MakeProposal/>
+                    </div>
                     
                 </div>
-                
             </div>
         
         </div>

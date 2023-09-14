@@ -280,6 +280,7 @@ h1{
 
 #career{
   width: 100%;
+  background-color: #ffffff;
   padding: 4%;
   box-shadow: 1px 1px 6px 1px rgba(0, 0, 0, 0.25);
   border-radius: 10px;
@@ -324,20 +325,32 @@ h1{
   display: flex;
   width: 80%;
   flex-wrap: wrap;
+  background: none;
   
+  align-items: center;
 }
 
 .inputs-container{
   width: 50%;
   margin-top: 4%;
+  background: none;
 
+}
 
+input{
+  background: none;
 }
 
 
 #register-students-form{
   width: 100%;
+  background: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
+
+
 
 #register-button{
   margin-top: 5%;
@@ -364,7 +377,7 @@ h1{
 }
 
 .container-all{
-  padding-top: 90px;
+  padding-top: 80px;
 }
 
 .square-events{
@@ -403,9 +416,14 @@ h1{
 }
 
 .events-header{
+  
   background:none;
   margin-left: 5%;
-
+  margin-top: 2%;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  font-size: 240%;
 }
 
 
@@ -555,4 +573,86 @@ span{
 .day-button:hover{
   background-color: #87bfff;
   transition: 400ms;
+}
+
+.reminders-container{
+  width: 60%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.5%;
+  background-color: #f8f8f8;
+  box-shadow: 4px 4px 14px 1px #808080 ;
+  overflow: auto;
+  
+}
+
+.reminder-container{
+  width: 90%;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  background: none;
+}
+
+.square-reminders{
+  width: 100%;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  margin-top: 3%;
+  margin-bottom: 4%;
+  background: none;
+}
+
+.reminder-tittle{
+    font-size: 22px;
+    font-weight: bold;
+    background: none;
+    width: 100%;
+
+}
+
+p{
+  background: none;
+}
+
+.reminder-text{
+  margin-top: 2%;
+  font-size: 16px;
+  
+  background: none;
+  width: 100%;
+}
+
+
+.container-form-proposal{
+  background: none;
+}
+
+label{
+  background: none;
+}
+
+#request-topic{
+  height: 25px;
+  width: 80%;
+  max-width: 80%;
+  min-width: 80%;
+  max-height: 200px;
+  overflow-y: scroll;
+  background-color: #fff;
+}
+
+.square-proposals{
+  width: 100%;
+  height: 400px;
+  display: flex;
+  justify-content: center;
+  margin-top: 3%;
+  margin-bottom: 4%;
+  background: none;
 }

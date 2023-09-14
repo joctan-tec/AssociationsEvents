@@ -144,11 +144,11 @@ export default function RegisterUserStudent() {
                         <label htmlFor="personal-id" className="label-register">Número de identificación</label>
                         <input title="Debe ser en formato: 20########" type="text" id="personal-id" name="personal-id" required placeholder="Ingrese su número de identificación" className="data-inputs-register"></input>
                     </div>
+                   <button type="submit"id="register-button">Registrarse ➔</button>
                     
                 </div>
-                <div>
-                    <button type="submit"id="register-button">Registrarse ➔</button>
-                </div>
+                
+               
                 
 
             </form>
