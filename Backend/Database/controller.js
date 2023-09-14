@@ -11,16 +11,19 @@ const login = async(req, res) =>
     var result = await pool.request()
         .input('inName', req.body.inName)
         .input('inPassword', req.body.inPassword)
+        .output('outCedula')
         .output('outLoginSuccess', 0)             
         .output('outResultCode', 0)
         if(patron.test(req.body.inName)){
             result = await pool.request()
             .input('inName', req.body.inName)
             .input('inPassword', req.body.inPassword)
+            .output('outCedula')
             .output('outLoginSuccess', 0)             
             .output('outResultCode', 0)
             .execute('LoginDB')
             account.accountType = "Student"
+            account.id = result.output.outCedula
         }else{
             result = await pool.request()
             .input('inName', req.body.inName)
@@ -29,6 +32,7 @@ const login = async(req, res) =>
             .output('outResultCode', 0)
             .execute('LoginDBAso');
             account.accountType = "Association"
+            account.name = req.body.inName
         }
     if (result.output.outResultCode == 0 && result.output.outLoginSuccess == 0) {
         account.access = "Login Exitoso"
